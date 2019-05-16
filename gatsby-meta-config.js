@@ -1,9 +1,9 @@
 module.exports = {
-  title: `배운것, 읽을것, 경험한것`,
+  title: `배운 것, 읽을 것, 경험한 것`,
   description: `깊게 이해하고 넓게 소통합니다.`,
   author: `[david hwang]`,
   introduction: `깊게 이해하고 넓게 소통합니다.`,
-  siteUrl: `https://gatsby-starter-bee.netlify.com`, // Your blog site url
+  siteUrl: `https://davidhwang.netlify.com`, // Your blog site url
   social: {
     twitter: ``, // Your Twitter account
     github: `david718`, // Your GitHub account
@@ -14,7 +14,7 @@ module.exports = {
   keywords: [`blog`],
   comment: {
     disqusShortName: '', // Your disqus-short-name. check disqus.com.
-    utterances: 'JaeYeopHan/gatsby-starter-bee', // Your repository for archive comment
+    utterances: 'david718/blog', // Your repository for archive comment
   },
   configs: {
     countOfInitialPost: 10, // Config your initial count of post
