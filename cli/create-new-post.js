@@ -33,7 +33,6 @@ const getFileName = title =>
   title
     .split(' ')
     .join('-')
-    .toLowerCase()
 
 const refineContents = rawContents =>
   matter
