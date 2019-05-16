@@ -1,16 +1,16 @@
 module.exports = {
-  title: `Bee starter`,
-  description: `Blog posted about ...`,
-  author: `[Your Name]`,
-  introduction: `I explain with words and code. I explain with words and code. I explain with words and code.`,
+  title: `배운것, 읽을것, 경험한것`,
+  description: `깊게 이해하고 넓게 소통합니다.`,
+  author: `[david hwang]`,
+  introduction: `깊게 이해하고 넓게 소통합니다.`,
   siteUrl: `https://gatsby-starter-bee.netlify.com`, // Your blog site url
   social: {
     twitter: ``, // Your Twitter account
-    github: ``, // Your GitHub account
-    medium: ``, // Your Medium account
+    github: `david718`, // Your GitHub account
+    medium: `@hkc7180`, // Your Medium account
     facebook: ``, // Your Facebook account
   },
-  icon: `content/assets/felog.png`, // Add your favicon
+  icon: `content/assets/image.png`, // Add your favicon
   keywords: [`blog`],
   comment: {
     disqusShortName: '', // Your disqus-short-name. check disqus.com.
