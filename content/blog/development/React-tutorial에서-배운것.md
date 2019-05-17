@@ -3,15 +3,13 @@ title: React tutorial(JSX)
 date: 2019-05-17 12:05:44
 category: development
 ---
-
-#JSX
 JSX는 React element를 생성  
 React element란? 2.elements에서 설명  
 
 ###JSX는 객체이다
 Babel은 JSX를 React.createElement()를 호출하여 컴파일 함  
 
-```js{}
+```js
 const element = (
   <h1 className="greeting">
     Hello, React!
@@ -21,7 +19,7 @@ const element = (
 
 위와 같이 JSX를 element를 할당하면
 
-```js{}
+```js
 const element = React.createElement(
   'h1',
   {className: 'greeting'},
@@ -32,7 +30,7 @@ const element = React.createElement(
 바벨은 createElement()라는 method를 실행한다.  
 이때 arguments로는 HTML tag 이름, classname등이 포함된 object, children이 주어진다.  
 
-```js{}  
+```js  
 const element = {
   type: 'h1',
   props: {
