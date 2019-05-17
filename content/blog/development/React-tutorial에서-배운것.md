@@ -85,4 +85,4 @@ React element의 구성은 아래와 같다.
 - type의 value값인 HTML tag이름
 - props의 value값인 className과 children
   
-그럼 다음 블로깅에서는 React element를 DOM에 렌더링하는 방법을 살펴보자
+다음에는 React element를 DOM에 렌더링하는 방법을 살펴보자
