@@ -19,6 +19,8 @@ const element = (
 )
 ```
 
+위와 같이 JSX를 element를 할당하면
+
 ```js{3}
 const element = React.createElement(
   'h1',
@@ -26,6 +28,9 @@ const element = React.createElement(
   'Hello, React!
 )
 ```
+
+바벨은 createElement()라는 method를 실행한다.  
+이때 arguments로는 HTML tag 이름, classname등이 포함된 object, children이 주어진다.  
 
 ```js{3}  
 const element = {
@@ -36,6 +41,11 @@ const element = {
   }
 }
 ```
+
+createElement()는 위 object를 return한다.  
+위 object는 JSX가 생성한 React element이다.  
+type이라는 key값의 value로는 HTML tag이름이,  
+props라는 key값의 value로는 className과 children이 주어진다.  
 
 ###왜 JSX를 사용할까?
 React는 렌더링 로직과 UI 로직이 분리될 수 없음을 고려하여 만들어진 라이브러리  
