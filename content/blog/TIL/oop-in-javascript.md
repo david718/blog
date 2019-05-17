@@ -54,14 +54,14 @@ category: TIL
         [](https://www.notion.so/5fa7f7c314b74b529205cb3ffa532c56#c60c5d6ebc5c46359ed1312f09847e14)
 
         prototype을 활용하여 진행(prototype을 이용해야 모든 instance에게 전달)
-
+```js
             function Child ( ... ) {
             	Parent.apply(this, arguments); //property 상속 과정
             }
             
             Child.prototype = Object.create(Parent.prototype); //method 상속 과정
             Child.prototype.constructor = Child //재할당 안해주면 Parent가 constructor
-
+```
     - Encapsulation
 
         [](https://www.notion.so/5fa7f7c314b74b529205cb3ffa532c56#e373e86d1c5f45709483237995097070)
@@ -69,7 +69,7 @@ category: TIL
         객체의 data가 직접 노출되지 않아야 함(임의로 잘못된 값 수정 불가) 
 
         - 문제 상황(숫자를 넣으면 이름이 갑자기 숫자가 됨)
-
+```js
                 var person = {
                   fullName : "david hwang",
                 };
@@ -77,9 +77,9 @@ category: TIL
                 alert(person.fullName); // david hwang
                 person.fullName = 31;
                 alert(person.fullName); // 31
-
+```
         - 해결책 - 한마디로 - property를 숨긴다(은닉화 → closure)
-
+```js
                 var person = {
                   fullName: "david hwang",
                   setFullName: function (newValue) {
@@ -100,13 +100,13 @@ category: TIL
                 alert( person.getFullName() );   // Rockheung
                 person.setFullName( 31 );        // Invalid Name
                 alert( person.getFullName() );   // Rockheung
-
+```
     - Abstraction
 
         [](https://www.notion.so/5fa7f7c314b74b529205cb3ffa532c56#65d0d9ca5f74470a9f8dd170a272d358)
 
         - 일반적인 상황 : 특정 세부사항은 숨기고(generalization) 대상의 필수 기능(specialization)표시하는 것
-
+```js
                 const add = (a, b) => a + b;
                 
                 const a = add(1, 1); //2
@@ -117,9 +117,9 @@ category: TIL
                 const inc = editAdd(1);
                 inc(1) // 2
                 inc(2) // 3
-
+```
         - in javascript 한마디로 class의 property와 method의 구조를 재사용(상속)가능하게
-
+```js
                 class ClassName {
                     constructor(init1, init2) {
                         this.prop1 = init1;
@@ -145,7 +145,7 @@ category: TIL
                 inst.props = [1, 2];
                 inst.methodInst();
                 ClassName.methodStat();
-
+```
     - Polymorphism
 
         [](https://www.notion.so/5fa7f7c314b74b529205cb3ffa532c56#1a635089b289419c93c58dcd696f9ff7)
@@ -153,7 +153,7 @@ category: TIL
         method가 역할마다 이름을 다르게 갖지 않고 공통 역할을 묶어서 쓸 수 있다. 그 결과 재사용성이 높아진다. (다양한 자료가 타입을 가질 수 있다)
 
         - 일반
-
+```js
                 //숫자를 문자열로 바꾸는 경우
                 string = StringFromNumber(number);
                 
@@ -165,9 +165,9 @@ category: TIL
                 
                 //날짜를 문자열로 바꾸는 경우
                 string = date.StringValue();
-
+```
         - in javascript 한마디로 method 공유!
-
+```js
                 function Person(age,weight){
                  this.age = age;
                  this.weight = weight;
@@ -190,3 +190,4 @@ category: TIL
                     "and weighs " + this.weight +" kilo " +
                     "and earns " + this.salary + " dollar.";  
                 };
+```
