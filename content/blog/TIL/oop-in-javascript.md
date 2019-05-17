@@ -35,7 +35,7 @@ category: TIL
 
 - JS는 core에 몇개의 객체가 있음
     - Math, Object, Array, String 등
-- 모든 객체는 Object 객체의 instance 이므로 Object의 method, property를 inheritance 받음
+- 모든 객체는 Object 객체의 instance 이므로 Object의 method, property를 inheritance 받는다
 
 ### 용어(자바스크립트에서 무슨 뜻인지)
 
