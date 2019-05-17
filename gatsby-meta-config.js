@@ -1,5 +1,5 @@
 module.exports = {
-  title: `배운 것, 읽을 것, 경험한 것`,
+  title: `David, WebDeveloper`,
   description: `깊게 이해하고 넓게 소통합니다.`,
   author: `[david hwang]`,
   introduction: `깊게 이해하고 넓게 소통합니다.`,
