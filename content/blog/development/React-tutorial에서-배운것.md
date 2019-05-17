@@ -11,7 +11,7 @@ React element란? 2.elements에서 설명
 ### JSX는 객체이다
 Babel은 JSX를 React.createElement()를 호출하여 컴파일 함
 ```js{3}
-
+  
 
 ```
 
