@@ -35,6 +35,22 @@ React DOM은 렌더링하기 전에 JSX안에 넣은 모든 값을 _escape_ 한�
 모든 것은 렌더링되기 전에 string으로 변환한다.  
 _XSS 공격 방지_
 
+##JSX는 attribute를 가진다
+아래와 같이 tabIndex라는 attribute의 값을 문자 0 으로 지정할 수 있다.
+
+```js
+const element = <div tabIndex="0"></div>;
+```
+
+중괄호를 사용하여 attribute에 javascript 표현식을 넣을 수도 있다.
+
+```js
+const element = <img src={user.profileImageUrl} />;
+```
+
+>JSX는 HTML보다 javascript에 가깝기 때문에
+attribute의 변수명으로 camel case를 사용한다.  
+
 ##JSX represents object
 JSX는 object(React element)를 나타낸다.  
 
