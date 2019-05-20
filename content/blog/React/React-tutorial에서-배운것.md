@@ -1,7 +1,7 @@
 ---
 title: 1.JSX[React Tutorial]
 date: 2019-05-17 12:05:44
-category: development
+category: React
 ---
 JSX는 React element를 생성한다.  
 React element란? DOM에 Render 될 객체이다.  
