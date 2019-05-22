@@ -4,7 +4,7 @@ date: 2019-05-17 12:05:44
 category: React
 ---
 **함께보면 이해가 쏙쏙**  
-https://www.youtube.com/watch?v=3L5j1nJpjn4
+https://youtu.be/3L5j1nJpjn4
 
 JSX는 React element를 생성한다.  
 React element란? DOM에 Render 될 객체이다.  
