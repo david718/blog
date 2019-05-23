@@ -10,11 +10,11 @@ JSX는 React element를 생성한다.
 React element란? DOM에 Render 될 객체이다.  
 
 ##왜 JSX를 사용할까?
-React는 렌더링 로직과 UI 로직이 분리될 수 없음을 고려하여 만들어진 라이브러리이다.  
-따라서 렌더링 로직 + UI 로직을 수행하는 Component라는 객체를 만든다.  
-이 Component는 React element로 구성된다.  
+React는 렌더링과 UI 로직이 분리 불가능함을 고려하여 만들어진 라이브러리이다.  
+따라서 렌더링 로직 + UI 로직을 수행하는 Component라는 function을 만든다.  
+이 Component는 React element을 return한다.  
 
-> JSX는 React elemet를 만드는 Markup Language의 일종
+> JSX는 React elemet를 표현하는 Markup Language의 일종
 
 Markup Language이므로 UI 로직을 시각적으로 이해하기 쉽게 표현한다.  
 **-> HTML tag와 모양 비슷**  
@@ -45,7 +45,7 @@ _XSS 공격 방지_
 const element = <div tabIndex="0"></div>;
 ```
 
-중괄호를 사용하여 attribute에 javascript 표현식을 넣을 수도 있다.
+`{}`를 사용하여 attribute에 javascript expression을 넣을 수도 있다.
 
 ```js
 const element = <img src={user.profileImageUrl} />;
@@ -106,4 +106,4 @@ React element의 구성은 아래와 같다.
 - type의 value값인 HTML tag이름
 - props의 value값인 className과 children
   
-다음 블로깅에서는 React element를 DOM에 렌더링하는 방법을 살펴보자
+다음 블로깅에서는 **React element를 DOM에 렌더링하는 방법**을 살펴보자
