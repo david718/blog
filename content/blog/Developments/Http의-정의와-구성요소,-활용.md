@@ -17,9 +17,9 @@ png, jpg등의 그림파일, html, css, 비디오 data까지.
 server(그림 Ads server, Video Server, Web server)는 data를 주고  
 client(Web document)는 data를 받아서 페이지를 구성한다.  
   
-이렇게 data를 주고 받을 때는 지켜야 하는 규약이 있다.  
-그 규약이 HTTP이다.
+이렇게 data를 주고 받을 때는 지켜야 하는 규약이 HTTP이다.
 
+##
 
 
 ##References
