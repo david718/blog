@@ -9,7 +9,7 @@ http는 hyper text transfer protocol이다.
 data를 주고 받는 주체는 server와 client이다.  
 아래 그림을 통해 구체적으로 살펴보자.
 
-![](./images/httpimage.png)
+![](./images/http.png)
 
 위 그림에서 왼쪽 Web documnet 페이지는 다양한 data로 구성되어 있다.  
 png, jpg등의 그림파일, html, css, 비디오 data까지.  
