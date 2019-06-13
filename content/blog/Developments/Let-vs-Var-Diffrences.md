@@ -1,7 +1,7 @@
 ---
 title: Let vs Var Diffrences(with const)
 date: 2019-05-17 17:05:30
-category: TIL
+category: Developments
 ---
 
 **let**과 **var**는 모두 변수를 선언하는 _키워드_ 이다.  

@@ -1,7 +1,7 @@
 ---
 title: OOP in Javascript
 date: 2019-05-16 15:05:58
-category: TIL
+category: Developments
 ---
 
 ## 객체지향 프로그래밍
