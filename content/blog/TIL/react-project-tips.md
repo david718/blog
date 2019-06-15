@@ -23,10 +23,21 @@ module.exports = {
   }, //입력
   module: {
     rules: [{ test: /\.jsx?/, loader: "babel-loader", options: {
-      presets: ['@babel/preset-env', '@babel/preset-react'],
-      plugins: ['@babel/plugin-proposal-class-properties']
-    } }]
+      presets: [
+        ['@babel/preset-env', {
+          targets: {
+            browsers: ['last 2 chrome versions'],
+          },
+          debug: true,
+        }],
+        '@babel/preset-react',
+      ],
+      plugins: ['@babel/plugin-proposal-class-properties'],
+    }, }]
   },
+  plugins: [
+    new webpack.LoaderOptionsPlugin({debug: true}),
+  ],
   output: {
     path: path.join(__dirname, "dist"),
     filename: "app.js"
@@ -46,7 +57,9 @@ webpack은 **entry**의 파일을 입력으로 받아서
 - module: webpack은 기본적으로 js, json만 해석 가능 다른 확장자의 파일을 해석하기 위해 module 사용
   - test: 해석해야 할 다른 확장자들
   - loader: 사용할 module의 이름
-  - options: module안에 preset과 plugin등 상세 module, 즉 option
+  - options: module안에 plugin들의 모음(preset은 plugin 모아둔 것)
+    - presets: option에서 적용되는 target을 설정할 수 있다
+- plugins: 확장 프로그램이라 생각하자 module 외에 추가로 필요한 프로그램 가져다 쓸 수 있음
 - output: 합친 결과물 파일을 저장할 경로와 파일 이름 설정  
 
 ###cli 설정 방법
@@ -74,6 +87,7 @@ webpack과 함께 쓰여 하나의 버전으로 javascript를 만들고
 2. webpack이 resolve에 있는 다양한 확장자를 인식
 3. entry에 있는 모든 파일(resolve의 다양한 확장자를 가진)을 인식
 4. module을 사용하여 모든 파일(다양한 확장자)을 js 파일로 변환
-5. 하나로 합침(bundling)
-6. output에서 설정한 경로에 하나로 합친 파일 저장
+5. plugins 를 활용하여 필요한 로직 수행
+6. 하나로 합침(bundling)
+7. output에서 설정한 경로에 하나로 합친 파일 저장
 
