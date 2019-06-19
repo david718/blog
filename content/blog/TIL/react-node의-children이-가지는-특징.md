@@ -1,5 +1,5 @@
 ---
-title: react node의 children이 가지는 특징
+title: [TIL - 0619]react node의 children이 가지는 특징
 date: 2019-06-19 21:06:93
 category: TIL
 ---
