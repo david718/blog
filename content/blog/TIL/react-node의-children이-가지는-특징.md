@@ -10,7 +10,7 @@ category: TIL
 </Layout>
 ```
 
-위와 같은 코드에서 Layout의 children은 Contents이다.
+위와 같은 코드에서 Layout의 children 은 Contents이다.
   
 하지만 아래와 같이  
 
