@@ -6,7 +6,7 @@ category: TIL
 
 ##webpack이란
 javascript의 모듈을 하나의 파일로 합치는(번들링) 역할  
-
+ 
 ```js
 const path = require('path');
 

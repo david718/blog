@@ -10,7 +10,7 @@ category: TIL
 ##webpack
 쪼개진 javascript 파일들을 하나로 합쳐주는 기능을 한다.  
 쪼개진 javascript 파일이 모듈이다.  
-
+ 
 ##react 
 쪼개진 react 파일들은 webpack으로 하나로 합친 후  
 html에서 script 태그안에서 불러온다.  

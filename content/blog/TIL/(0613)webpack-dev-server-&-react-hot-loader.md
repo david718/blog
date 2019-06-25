@@ -8,7 +8,7 @@ category: TIL
 webpack.config.js 파일을 읽어서 빌드(번들링)를 한 후  
 localhost에서 접속하여 빌드한 파일을 확인할 수 있도록  
 server에 대한 localhost의 port를 열어준다.
-
+ 
 ##react-hot-loader
 react에서 DOM 전체를 새로고침 하는 것이 아니라  
 DOM의 특정 element가 변화하면 그 변화한 부분만 업데이트한다.  

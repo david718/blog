@@ -1,9 +1,9 @@
 ---
-title: (0619)problem solving approach
-date: 2019-06-24 15:06:16
+title: (0623)problem solving approach
+date: 2019-06-23 15:06:16
 category: TIL
 ---
-
+ 
 ###Algorithm이란?
 특정 임무를 수행하는 과정 혹은 단계를 말한다  
 

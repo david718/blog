@@ -1,12 +1,6 @@
 ---
-title: (0619)reactNode의 children이 가지는 특징
-date: 2019-06-24 14:06:25
-category: TIL
----
-
----
-title: [TIL - 0619]react node의 children이 가지는 특징
-date: 2019-06-19 21:06:93
+title: (0621)reactNode의 children이 가지는 특징
+date: 2019-06-21 14:06:25
 category: TIL
 ---
 

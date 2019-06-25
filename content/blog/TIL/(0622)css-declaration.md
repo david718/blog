@@ -1,6 +1,6 @@
 ---
-title: (0622)css declaration 우선순위
-date: 2019-06-22 16:06:95
+title: (0617)css declaration 우선순위
+date: 2019-06-17 16:06:95
 category: TIL
 ---
 
@@ -8,7 +8,7 @@ css의 문법에 대해 새롭게 안 지식을 기록하자
 
 ##attribute
 자주 쓰이는 attribute 부터 공부하자
-
+ 
 ###font-size
 글자 크기를 단위로 표현한 특성  
   

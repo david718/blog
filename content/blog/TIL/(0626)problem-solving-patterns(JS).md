@@ -1,6 +1,6 @@
 ---
-title: (0626)problem solving patterns(JS)
-date: 2019-06-24 16:06:12
+title: (0625)problem solving patterns(JS)
+date: 2019-06-25 16:06:12
 category: TIL
 ---
 
@@ -105,5 +105,4 @@ data set을 더 작게 쪼갠 후
 작은 data set에 같은 과정을 반복하여 문제를 해결하는 방법  
 창문(sub set)과 다르게  
 범위에 상관없이 특징에 따라 sub set을 쪼갠다  
-  
-ㅇㅇ
+ 

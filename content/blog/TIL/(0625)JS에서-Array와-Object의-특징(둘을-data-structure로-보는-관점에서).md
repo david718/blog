@@ -1,6 +1,6 @@
 ---
-title: (0625)JS에서 Array와 Object의 특징(둘을 data structure로 보는 관점에서)
-date: 2019-06-24 14:06:21
+title: (0619)JS에서 Array와 Object의 특징(둘을 data structure로 보는 관점에서)
+date: 2019-06-19 14:06:21
 category: TIL
 ---
 
@@ -10,7 +10,7 @@ object는 아래 2가지 경우에 사용한다
 
 - 순서 상관 없이 data를 관리할 때
 - 빠르게 접근, 저장 혹은 삭제하고 싶을 때
-
+ 
 ###object에서 search하려면 O(n)이다
 key에는 바로 접근 가능하다  
 하지만 key의 value에는 key를 통해서만 접근할 수 있다  
