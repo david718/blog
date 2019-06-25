@@ -37,4 +37,62 @@ function sumZero(arr) {
 이를 통해 조건을 걸고 pointer를 움직이며 문제를 해결했다  
 이것이 multiple pointer 해결 전략이다  
 
-##
+###정렬된 array에서 유니크한 item 개수 구하기
+위 문제는 정렬된 item에서 중복 없이 유니크한 item 수를 구하는 것이다  
+이 문제또한 multiple pointers로 해결할 수 있다  
+  
+(pseudo code)
+시작 pointer와 비교 pointer 2가지 pointer를 움직이면서  
+값을 비교하고 같으면 비교 pointer를 움직이고 다르면 시작 pointer를 움직인다  
+
+```js
+function countUniqItem(arr) {
+  if(arr.length === 0) {
+    return 0;
+  } else if(arr.length === 1) {
+    return 1;
+  }
+  let i = 0;
+  let j = 0;
+  for(j = 1; j < arr.length; j++) {
+    if(arr[i] !== arr[j]) {
+      i++;
+      arr[i] = arr[j];
+    }
+  }
+  return i + 1;
+}
+```
+
+위와 같이 i 와 j pointer 를 움직여서 답을 구할 수 있다
+
+##sliding window pattern
+창문을 열고 닫는 것처럼 array 안에서 정해진 범위의 item을 탐색한다  
+아래 문제를 sliding window pattern 으로 풀 수 있다
+  
+array에서 4개의 연속된 item의 합 중 가장 큰 값을 찾아라
+
+```js{12}
+function maxSubarraySum (arr, num) {
+  if(arr.length < num) return null;
+
+  let maxSum = 0;
+  let tempSum = 0;
+
+  for(let i = 0; i < num; i++) {
+    maxSum += arr[i];
+  }
+  tempSum = maxSum;
+  for(let i = num; i < arr.length; i++) {
+    tempSum = tempSum - arr[i - num] + arr[i];
+    maxSum = Math.max(maxSum, tempSum);
+  }
+  return maxSum;
+}
+```
+
+subArray의 모든 값을 계속 다시 더할 필요 없이  
+원래 알고 있는 합 값에서 맨처음 값(`arr[i-num]`)을 빼고  
+맨마지막 값(`arr[i]`)을 더하면 새로 비교할 합 값이 된다  
+그렇게 새로 비교할 합 값으로 계속 비교하면서 최대 합 값을 찾는다  
+

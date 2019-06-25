@@ -3,6 +3,9 @@ title: OOP in Javascript
 date: 2019-05-16 15:05:58
 category: Developments
 ---
+  
+**함께보면 이해가 쏙쏙**  
+https://youtu.be/Ws_GHE5D62s
 
 ## 객체지향 프로그래밍
 

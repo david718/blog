@@ -4,6 +4,9 @@ date: 2019-05-17 17:05:30
 category: Developments
 ---
 
+**함께보면 이해가 쏙쏙**  
+https://youtu.be/pMb8dV8pk74
+
 **let**과 **var**는 모두 변수를 선언하는 _키워드_ 이다.  
 하지만 둘은 다음과 같은 차이가 있다.
 
