@@ -1,6 +1,6 @@
 ---
-title: webpack config 설정방법
-date: 2019-06-15 09:06:32
+title: (0608)webpack config 설정방법
+date: 2019-06-08 09:06:32
 category: TIL
 ---
 

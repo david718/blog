@@ -1,6 +1,6 @@
 ---
-title: react project tips(ref 등)
-date: 2019-06-14 14:06:94
+title: (0604)react project tips(ref 등)
+date: 2019-06-04 14:06:94
 category: TIL
 ---
 
