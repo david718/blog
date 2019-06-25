@@ -5,13 +5,14 @@ category: TIL
 ---
 
 ##Frequency counters(빈도수 세기)
-빈도수를 셀 때는 object를 사용하자
-세어야 할 item을 key, 빈도수를 value로 할당한다.  
-object를 활용하여 빈도수를 세고 문제를 해결하는 전략
+object를 사용하여 빈도수를 세는 문제 해결 전략이다  
+  
+세어야 할 item을 key, 빈도수를 value로 할당한다  
+JS에서 기본적인 counting 문제의 해결 전략
 
 ##multiple pointers
-item을 가리키는 pointer를 설정하자  
-pointer를 활용하여 문제를 풀자  
+item을 가리키는 pointer를 여러개 설정하자  
+이 pointer 들을 활용하여 문제를 해결하는 전략이다  
   
 예시로 sorted Array를 받아 합이 0이 되는  
 한쌍의 숫자를 return하는 함수 sumZero를 작성하자
@@ -67,7 +68,10 @@ function countUniqItem(arr) {
 위와 같이 i 와 j pointer 를 움직여서 답을 구할 수 있다
 
 ##sliding window pattern
-창문을 열고 닫는 것처럼 array 안에서 정해진 범위의 item을 탐색한다  
+특정 범위의 item을 포함하는 창문(sub set)을 만든다  
+창문(sub set)은 data set안에서 이동하며 탐색한다  
+이 창문의 특성을 활용하여 문제를 해결하는 전략이다
+
 아래 문제를 sliding window pattern 으로 풀 수 있다
   
 array에서 4개의 연속된 item의 합 중 가장 큰 값을 찾아라
@@ -96,3 +100,10 @@ subArray의 모든 값을 계속 다시 더할 필요 없이
 맨마지막 값(`arr[i]`)을 더하면 새로 비교할 합 값이 된다  
 그렇게 새로 비교할 합 값으로 계속 비교하면서 최대 합 값을 찾는다  
 
+##Divide and Conquer
+data set을 더 작게 쪼갠 후  
+작은 data set에 같은 과정을 반복하여 문제를 해결하는 방법  
+창문(sub set)과 다르게  
+범위에 상관없이 특징에 따라 sub set을 쪼갠다  
+  
+ㅇㅇ
