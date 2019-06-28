@@ -101,8 +101,7 @@ subArray의 모든 값을 계속 다시 더할 필요 없이
 그렇게 새로 비교할 합 값으로 계속 비교하면서 최대 합 값을 찾는다  
 
 ##Divide and Conquer
-data set을 더 작게 쪼갠 후  
-작은 data set에 같은 과정을 반복하여 문제를 해결하는 방법  
+data set을 더 작은 data set으로 쪼갠 후  
+작은 data set에 로직을 반복 수행하여 문제를 해결하는 방법  
 창문(sub set)과 다르게  
-범위에 상관없이 특징에 따라 sub set을 쪼갠다  
- 
+범위에 상관없이 조건에 따라 sub set을 쪼갠다
