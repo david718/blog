@@ -1,5 +1,5 @@
 ---
-title: (0709)redux basic concepts
+title: (0709)redux basic concepts 코드구현
 date: 2019-07-12 14:07:36
 category: TIL
 ---
