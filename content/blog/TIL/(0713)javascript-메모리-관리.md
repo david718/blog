@@ -78,6 +78,8 @@ flip flop을 읽거나 쓰는 것이 가능해진다
 
 ###메모리의 정적할당과 동적할당의 차이
 
+![](./images/memory.png)
+
 - 정적할당
   - compile time에 메모리 필요량 알아야 함
   - compile time에 수행됨
