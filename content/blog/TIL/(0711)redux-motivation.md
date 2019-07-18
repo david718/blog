@@ -53,4 +53,24 @@ javascript 컴파일러.
 ##기존 웹서버와 Node.js의 차이
 기존 멀티스레드 웹서버는 Apache가 있다  
 
-###Apache의 특성
+###기존 웹서버(Apache를 예로)의 특성
+Apache는 request를 처리하기 위해 별도의 스레드를 생성하거나 프로세스 호출  
+request가 많으면 병목 발생. 원인은 io 처리중 지연발생으로 다른 io 처리지연  
+  
+동기 방식에서 이를 해결하기 위해서는
+
+1. 멀티스레드
+2. 스케일아웃
+3. 로드밸런싱
+
+위 단계를 거쳐 io에서 발생할 지연을 대비한다.  
+  
+Nodejs 즉, 비동기는 위와 다른 방식으로 io 지연발생을 처리함  
+지연발생 할것 같은 io는 callback으로 background로 넘김  
+background란 libuv로 io 처리는 싱글스레드 non-blocking이다  
+  
+비동기 방식에서 해결하는 과정은  
+
+1. URL_A가 request 오면 event 돌린다(libuv로 넘김)
+2. 또 다음 URL_B의 request 받는다
+3. A의 event가 완료되면 callback으로 받음
