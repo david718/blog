@@ -5,6 +5,8 @@ category: TIL
 ---
 
 ##Comparable Video Viewer component 만드는 순서
+![](images/devineVideoTocanvas.jpg)
+
 canvas와 video tag를 활용하여 영상을 비교하며 볼수 있는  
 react component를 만드는 과정에 대해 설명하는 글이다
 
@@ -12,7 +14,7 @@ react component를 만드는 과정에 대해 설명하는 글이다
 2. **video tag와 setInterval을 활용하여 canvas위에 영상 렌더링하기:** 바뀌는 video tag의 img src 값을 가져와서 canvas에 capture를 반복적으로 다시 렌더링하는 방법을 사용한다
 3. **video를 2개의 image로 나눠서 canvas 위에 각각 렌더링하기:** drawImage를 활용한다
 4. **bar element를 움직일 수 있도록 만들기:** useEffect를 활용하여 bar element의 x좌표를 state로 관리한다
-5. **bar element의 위치에 따라서 2개의 image 보여주는 비율 조정하기:** drawImage를 module화 하여 해결한다
+5. **bar element의 위치에 따라서 2개의 image 보여주는 비율 조정하기:** drawImage를 module화 하여 x좌표 값을 변수로 할당한다
 
 ##1. canvas 로 도형 렌더링하기
 canvas 는 HTML5에서 등장한 tag이다  
@@ -87,18 +89,160 @@ barX는 bar element의 x 좌표이다
 3. clearInterval로 정리한다
 4. component가 mount 되면 setInterval을 다시 실행한다(이후 반복)
 
-##3. video를 2개 이미지로 나눠 캡쳐한 후 canvas에 렌더링하기
+##3. video를 2개 이미지로 나눠 캡쳐 후 canvas에 렌더링하기
 
 ![](images/Canvas_drawimage.jpg)
 
 그림에서 확인할 수 있듯이 Source image가 video tag 화면이다  
-Destinaion canvas에 그리려고 한다
+video tag에 송출되는 영상을 캡쳐해 Destinaion canvas에 그리려고 한다
 
-이때 주의할 점은 캡쳐해오는 image와 그릴 image의 넓이를 변수로 두는 것이다  
-왜냐하면 움직이는 bar의 x좌표 즉 barX에 따라 image의 넓이가 바뀌기 때문이다
+이때 주의할 점은 캡쳐해오는 image와 그릴 image의 **넓이를 변수**로 두는 것이다  
+왜냐하면 움직이는 bar의 x좌표 즉 `barX`에 따라 **image의 넓이**가 바뀌기 때문이다
 
 이 drawImage 를 활용하여 아래의 과정을 거쳐 video를 2개로 나눠 렌더링했다
+위에서 보여준 그림 즉 전체 과정이다
 
 ![](images/devineVideoTocanvas.jpg)
 
-##4.
+##4. bar element를 움직일 수 있도록 만들기
+
+```js
+const barMove = (e: any) => {
+  if (dragabble) {
+    setBarX(e.pageX - canvasX)
+  }
+}
+const mouseDown = (e: any) => {
+  if (barX < e.pageX - canvasX && e.pageX - canvasX < barX + barWidth) {
+    setBarX(e.pageX - canvasX - barWidth / 2)
+    dragabble = true
+    canvas.onmousemove = barMove
+  }
+}
+const mouseUp = (e: any) => {
+  dragabble = false
+  canvas.onmousemove = null
+  if (e.pageX - canvasX >= canvas.width - barWidth) {
+    setBarX(canvas.width - barWidth)
+  } else {
+  }
+}
+const drawBar = (x: number, y: number, w: number, h: number, style: string) => {
+  ctx.fillStyle = style
+  ctx.rect(x, y, w, h)
+  ctx.fill()
+}
+
+ctx.clearRect(0, 0, video.videoWidth / 2, video.videoHeight)
+
+ctx.beginPath()
+ctx.drawImage(...Object.values(backgroundVideoConfig))
+
+ctx.beginPath()
+ctx.drawImage(...Object.values(overrideVideoConfig))
+
+ctx.beginPath()
+drawBar(barX, 0, barWidth, video.videoHeight, '#444444')
+
+canvas.onmousedown = mouseDown
+canvas.onmouseup = mouseUp
+```
+
+전체 코드는 마지막에 다시한번 읽어보자  
+아래에서는 함수를 하나씩 따로 설명할 것이다
+
+###barMove()
+
+```js
+const barMove = (e: any) => {
+  if (dragabble) {
+    setBarX(e.pageX - canvasX)
+  }
+}
+```
+
+바가 움직일때 실행되는 함수이다  
+setBarX로 barX 즉 bar의 x좌표 값을 바꾼다
+
+- dragabble: 기본값 false bar위에 mousedown이 되면 true가 된다
+- e.pageX: 현재 마우스의 x좌표 값
+- canvasX: canvas tag의 x좌표 값
+
+즉 현재 마우스의 x좌표 값에서 canvas tag의 x좌표값을 빼면  
+canvas 위에서의 x좌표 값이 나온다
+
+canvas 위에서의 x좌표 값으로 barX의 값을 수정한다
+
+###mouseDown()
+
+```js
+const mouseDown = (e: any) => {
+  if (barX < e.pageX - canvasX && e.pageX - canvasX < barX + barWidth) {
+    setBarX(e.pageX - canvasX - barWidth / 2)
+    dragabble = true
+    canvas.onmousemove = barMove
+  }
+}
+```
+
+mouseDown은 bar 위에 mouse를 올린 후  
+click하는 event까지 2개의 event가 모두 발생했을 경우 실행되는 함수이다
+
+1. setBarX로 bar의 위치를 수정한다
+2. dragabble을 true로 바꾸어 끌 수 있도록 준비한다
+3. nmousemove에 barMove를 할당하여 마우스가 움직일 때 barMove를 실행한다
+
+###mouseUp()
+
+```js
+const mouseUp = (e: any) => {
+  dragabble = false
+  canvas.onmousemove = null
+  if (e.pageX - canvasX >= canvas.width - barWidth) {
+    setBarX(canvas.width - barWidth)
+  } else if (e.pageX - canvasX <= 0) {
+    setBarX(0)
+  }
+}
+```
+
+mouseUp은 canvas 바깥으로 마우스가 나가고 click을 그만하면 실행되는 함수이다
+
+1. dragabble 에 false를 할당한다
+2. onmousemove에 null 값을 할당하여 callback을 지운다
+3. 범위 바깥으로 나가면 가장자리에 bar 가 위치하도록 if문을 작성한다
+
+###전체 동작 원리
+
+```js
+const drawBar = (x: number, y: number, w: number, h: number, style: string) => {
+  ctx.fillStyle = style
+  ctx.rect(x, y, w, h)
+  ctx.fill()
+}
+
+ctx.clearRect(0, 0, video.videoWidth / 2, video.videoHeight)
+
+ctx.beginPath()
+ctx.drawImage(...Object.values(backgroundVideoConfig))
+
+ctx.beginPath()
+ctx.drawImage(...Object.values(overrideVideoConfig))
+
+ctx.beginPath()
+drawBar(barX, 0, barWidth, video.videoHeight, '#444444')
+
+canvas.onmousedown = mouseDown
+canvas.onmouseup = mouseUp
+```
+
+drawBar는 bar를 그리는 함수이다
+
+동작 순서는 아래와 같다
+
+1. clreaRect로 cavnas 안에 모든 것을 지운다
+2. `ctx.drawImage(...Object.values(backgroundVideoConfig))`를 실행하여 SR video를 background에 깐다
+3. `ctx.drawImage(...Object.values(overrideVideoConfig))`를 실행하여 original video를 그 위에 override 한다
+4. drawBar로 위치가 수정된 bar를 그린다
+
+위 과정을 setInterval을 통해 무한 반복하여 마치 재생되는 것처럼, bar가 움직이는 것처럼 보이게 한다
