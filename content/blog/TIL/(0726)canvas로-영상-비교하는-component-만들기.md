@@ -88,3 +88,17 @@ barX는 bar element의 x 좌표이다
 4. component가 mount 되면 setInterval을 다시 실행한다(이후 반복)
 
 ##3. video를 2개 이미지로 나눠 캡쳐한 후 canvas에 렌더링하기
+
+![](images/Canvas_drawimage.jpg)
+
+그림에서 확인할 수 있듯이 Source image가 video tag 화면이다  
+Destinaion canvas에 그리려고 한다
+
+이때 주의할 점은 캡쳐해오는 image와 그릴 image의 넓이를 변수로 두는 것이다  
+왜냐하면 움직이는 bar의 x좌표 즉 barX에 따라 image의 넓이가 바뀌기 때문이다
+
+이 drawImage 를 활용하여 아래의 과정을 거쳐 video를 2개로 나눠 렌더링했다
+
+![](images/devineVideoTocanvas.jpg)
+
+##4.
