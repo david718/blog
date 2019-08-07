@@ -303,3 +303,9 @@ barX로 즉, bar의 x좌표로 조절할 수 있다
 2. canvas의 동작원리
 3. react component 안에서 setInterval을 사용
 4. canvas가 react와 조화롭게 동작하도록 변수를 state로 관리
+
+##referneces
+
+- canvas의 drawImage() : https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/drawImage
+- bar element의 drag & drop : https://html5.litten.com/how-to-drag-and-drop-on-an-html5-canvas/
+- canvas에 video 그리기 : https://developer.mozilla.org/ko/docs/Web/HTML/Canvas/Manipulating_video_using_canvas
