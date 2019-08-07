@@ -11,10 +11,10 @@ canvas와 video tag를 활용하여 영상을 비교하며 볼수 있는
 react component를 만드는 과정에 대해 설명하는 글이다
 
 1. **canvas로 도형 렌더링하기:** 두 영상을 비교해서 보여줄 때 각 영상의 넓이를 조절하는 bar element를 그리기 위함이다
-2. **video tag와 setInterval을 활용하여 canvas위에 영상 렌더링하기:** 바뀌는 video tag의 img src 값을 가져와서 canvas에 capture를 반복적으로 다시 렌더링하는 방법을 사용한다
-3. **video를 2개의 image로 나눠서 canvas 위에 각각 렌더링하기:** drawImage를 활용한다
-4. **bar element를 움직일 수 있도록 만들기:** useEffect를 활용하여 bar element의 x좌표를 state로 관리한다
-5. **bar element의 위치에 따라서 2개의 image 보여주는 비율 조정하기:** drawImage를 module화 하여 x좌표 값을 변수로 할당한다
+2. **video tag와 setInterval을 활용하여 canvas위에 영상 렌더링하기:** 바뀌는 video tag의 img src 값을 가져와서 canvas에 capture를 반복적으로 다시 렌더링하는 방법을 사용한다(useEffect를 활용)
+3. **video를 2개의 image로 나눠서 canvas 위에 각각 렌더링하기:** drawImage를 활용한다 video를 캡쳐하여 canvas 위에 나눠서 그린다
+4. **bar element를 움직일 수 있도록 만들기:** bar element의 x좌표를 state로 관리한다 canvas의 event listener를 활용하여 변경된 x좌표를 적용한다
+5. **bar element의 위치에 따라서 2개의 image 보여주는 비율 조정하기:** drawImage를 module화 하여 x좌표 값을 변수로 할당한다 이미지 비율을 조정한다
 
 ##1. canvas 로 도형 렌더링하기
 canvas 는 HTML5에서 등장한 tag이다  
