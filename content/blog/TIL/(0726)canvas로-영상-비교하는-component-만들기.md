@@ -143,7 +143,7 @@ ctx.drawImage(...Object.values(overrideVideoConfig))
 
 ctx.beginPath()
 drawBar(barX, 0, barWidth, video.videoHeight, '#444444')
-
+다
 canvas.onmousedown = mouseDown
 canvas.onmouseup = mouseUp
 ```
@@ -246,3 +246,60 @@ drawBar는 bar를 그리는 함수이다
 4. drawBar로 위치가 수정된 bar를 그린다
 
 위 과정을 setInterval을 통해 무한 반복하여 마치 재생되는 것처럼, bar가 움직이는 것처럼 보이게 한다
+
+##5. bar element의 위치에 따라서 2개의 image 보여주는 비율 조정하기
+
+```js{4, 6, 8, 10, 20, 24, 30}
+ctx.beginPath()
+const backgroundVideoConfig = {
+  video,
+  sourceX: video.videoWidth / 2 + barX,
+  sourceY: 0,
+  sourceWidth: video.videoWidth / 2 - barX,
+  sourceHeight: video.videoHeight,
+  drawX: barX,
+  drawY: 0,
+  drawWidth: video.videoWidth / 2 - barX,
+  drawHeight: video.videoHeight,
+}
+ctx.drawImage(...Object.values(backgroundVideoConfig))
+
+ctx.beginPath()
+const overrideVideoConfig = {
+  video,
+  sourceX: 0,
+  sourceY: 0,
+  sourceWidth: barX,
+  sourceHeight: video.videoHeight,
+  drawX: 0,
+  drawY: 0,
+  drawWidth: barX,
+  drawHeight: video.videoHeight,
+}
+ctx.drawImage(...Object.values(overrideVideoConfig))
+
+ctx.beginPath()
+drawBar(barX, 0, barWidth, video.videoHeight, '#444444')
+```
+
+하이라이팅된 부분들이 barX가 들어간 곳이다
+
+위 코드가 진행되면서 canvas에 그려지는 element의 순서는 아래와 같다
+
+1. background video
+2. override video
+3. bar
+
+이때 2개의 video element가 그려질때 그 비율을  
+barX로 즉, bar의 x좌표로 조절할 수 있다  
+또한 bar가 그려지는 위치또한 x좌표로 조절할 수 있다
+
+이를 통해 video가 보여지는 비율과 bar의 위치를  
+조절하는 것이 가능해진다
+
+##ComparableVideoViewer component 만들며 경험한 것
+
+1. video src가 img src와 같은 비트맵 데이터임을 알고 활용함
+2. canvas의 동작원리
+3. react component 안에서 setInterval을 사용
+4. canvas가 react와 조화롭게 동작하도록 변수를 state로 관리
