@@ -1,5 +1,5 @@
 ---
-title: (0806)git pull 할 때 error(fetal: refusing to merge unrelated histories) 해결방법
+title: (0806)git pull 할 때 refusing to merge unrelated histories) 해결방법
 date: 2019-08-09 18:08:53
 category: TIL
 ---
