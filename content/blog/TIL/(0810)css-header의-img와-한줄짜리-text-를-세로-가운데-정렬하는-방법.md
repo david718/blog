@@ -1,6 +1,6 @@
 ---
 title: (0810)css img 혹은 text(한줄)을 세로 가운데 정렬하는법(styled-component 사용)
-date: 2019-08-12 14:08:77
+date: 2019-08-10 14:08:77
 category: TIL
 ---
 
