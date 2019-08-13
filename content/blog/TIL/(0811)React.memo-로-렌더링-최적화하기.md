@@ -114,7 +114,7 @@ props가 바뀔때 다시 렌더링 될 필요가 없는 html tag까지 렌더�
 해당 component(`VideoControlBar`)에 React.memo를 사용하여  
 props가 바뀌지 않을 때는 다시 렌더링 되지 않도록 수정했다
 
-##React.memo 동작 원리
+##4. React.memo 사용 방법
 React.memo는 React component와 callback  
 2개 parameter를 받는다
 
