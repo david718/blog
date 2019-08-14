@@ -13,7 +13,7 @@ category: TIL
 
 ##1. 문제: header height 고정값일 때 content height가 100%여서 넘치는 상황
 
-![](./images/0812_cssHeightProblem.jpg)
+![](images/0812_cssHeightProblem.jpg)
 
 위 화면에 파란색으로 override된 부분이 header이다
 이 header는 line-height 값이 60px로 할당되어 있다  
