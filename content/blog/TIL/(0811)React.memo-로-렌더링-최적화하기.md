@@ -182,6 +182,6 @@ const VideoControlBar: React.SFC<Props> = React.memo(
 이전 animTitle과 다음 animTitle이 다를 때를 설정한다
 
 그 결과 animTitle의 값이 바뀌면  
-`VideoControlBar`는 리렌더링 된다
+`VideoControlBar`는 리렌더링 된다  
 (그렇지 않은 경우는 callback이 true를 return하므로  
 리렌더링 되지 않는다)

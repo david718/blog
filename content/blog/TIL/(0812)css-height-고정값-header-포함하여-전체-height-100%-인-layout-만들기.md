@@ -1,5 +1,5 @@
 ---
-title: (0812)css height 고정값 header 포함하여 전체 height 100% 인 layout 만들기
+title: (0812)height 고정값인 header 포함하여 height 100% layout 만들기
 date: 2019-08-14 11:08:68
 category: TIL
 ---
