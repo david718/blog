@@ -4,7 +4,7 @@ date: 2019-08-14 11:08:68
 category: TIL
 ---
 
-###Index
+##Index
 
 1. 문제: header의 height 가 고정값이고 content의 height는 100%이므로 content가 넘쳐서 scroll이 생긴다
 2. 해결: content height에서 header의 height를 뺄 수 있는 방법은 없을까
@@ -99,7 +99,7 @@ overflow의 auto 값을 주었다
 
 ![](images/0812_gotScroll.png)
 
-##Outro
+##Epilogue
 고정된 높이를 가진 header를 포함한 layout을 만들때  
 css property 값을 계산하여 할당하는 방법이 있다는 것을 알게되었다
 
@@ -107,6 +107,6 @@ css property 값을 계산하여 할당하는 방법이 있다는 것을 알게�
 
 이를 통해 유동적인 height와 고정된 height 값을 자유롭게 혼합하여 쓸 수 있게 되었다
 
-##references
+##References
 
 - https://src-bin.com/ko/q/9f035
