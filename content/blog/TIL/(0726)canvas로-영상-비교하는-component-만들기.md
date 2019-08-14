@@ -5,7 +5,7 @@ category: TIL
 ---
 
 ##Comparable Video Viewer component 만드는 순서
-![](images/devineVideoTocanvas.jpg)
+![](./images/devineVideoTocanvas.jpg)
 
 canvas와 video tag를 활용하여 영상을 비교하며 볼수 있는  
 react component를 만드는 과정에 대해 설명하는 글이다
@@ -91,7 +91,7 @@ barX는 bar element의 x 좌표이다
 
 ##3. video를 2개 이미지로 나눠 캡쳐 후 canvas에 렌더링하기
 
-![](images/Canvas_drawimage.jpg)
+![](./images/Canvas_drawimage.jpg)
 
 그림에서 확인할 수 있듯이 Source image가 video tag 화면이다  
 video tag에 송출되는 영상을 캡쳐해 Destinaion canvas에 그리려고 한다
@@ -102,7 +102,7 @@ video tag에 송출되는 영상을 캡쳐해 Destinaion canvas에 그리려고 
 이 drawImage 를 활용하여 아래의 과정을 거쳐 video를 2개로 나눠 렌더링했다
 위에서 보여준 그림 즉 전체 과정이다
 
-![](images/devineVideoTocanvas.jpg)
+![](./images/devineVideoTocanvas.jpg)
 
 ##4. bar element를 움직일 수 있도록 만들기
 

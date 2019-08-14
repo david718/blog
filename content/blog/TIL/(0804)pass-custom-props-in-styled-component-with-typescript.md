@@ -9,10 +9,11 @@ button 에 width라는 attribute 를 주려고 하는데
 typescript를 사용한다면 에러가 발생한다
 
 ```js
-const SButton = styled.button<Props>`
+const SButton = styled.button`
   font-size: 1.5em;
   text-align: center;
   color: gainsboro;
+  width: ${props => props.width}px;
 `
 
 <SButton width={80}>click me</SButton>
