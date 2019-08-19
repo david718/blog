@@ -29,10 +29,7 @@ const getCategories = async () => {
   )
 }
 
-const getFileName = title =>
-  title
-    .split(' ')
-    .join('-')
+const getFileName = title => title.split(' ').join('-')
 
 const refineContents = rawContents =>
   matter
