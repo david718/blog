@@ -34,7 +34,7 @@ console.log(promise1)
 
 ##Promise의 상태
 
-![](./images/promises.png)
+![](images/promises.png)
 
 promise는 3가지 상태를 가진다
 
@@ -73,4 +73,3 @@ function myAsyncFunction(url) {
 사용 가능하다
 
 xhr의 결과물이 성공할 경우 resolve가, 실패할 경우 reject가 실행된다
-

@@ -21,9 +21,9 @@ CPU 사용이 적지만 connection이 많은 웹 어플리케이션에 어울린
 
 ##Node.js의 아키텍쳐
 
-![](./images/nodejs.jpg)
+![](images/nodejs.jpg)
 
-상위 레벨은 javascript로 되어있고 로우레벨은 C, C++로 구성  
+상위 레벨은 javascript로 되어있고 로우레벨은 C, C++로 구성
 
 - 자바스크립트 라이브러리
 - 바인딩: js를 C, C++로 처리
@@ -32,15 +32,15 @@ CPU 사용이 적지만 connection이 많은 웹 어플리케이션에 어울린
 
 ###application, event loop는 싱글스레드 & 워커스레드는 멀티스레드
 application 즉, 개발자가 입력하는 곳에서는 싱글스레드, call stack 하나.  
-또한 event loop도 싱글스레드 따라서 하나의 루프가 계속 돌며 작업완료 체크.  
-  
+또한 event loop도 싱글스레드 따라서 하나의 루프가 계속 돌며 작업완료 체크.
+
 하지만 io를 처리하는 워커스레드는 여러개 즉, 멀티스레드
 그러므로 event loop가 계속 돌면서 워커스레드에게 io들 뿌려줌  
 (non-blocking io 처리)
 
 ###non-blocking io 비동기 처리의 장점
-io를 동기처리하게 되면 긴 시간이 걸리는 특정 작업이 끝날때까지 cpu는 멈춰있게 됨  
-  
+io를 동기처리하게 되면 긴 시간이 걸리는 특정 작업이 끝날때까지 cpu는 멈춰있게 됨
+
 비동기에서는 특정 io을 워커스레드에게 던지고 메인 콜스택에서는 다음 io 처리  
 워커스레드에서 특정 io 처리되면 해당 결과를 메인 콜스택으로 보내줌  
 따라서 cpu가 멈춰있지 않고 낭비없이 io를 처리할 수 있음
@@ -48,28 +48,28 @@ io를 동기처리하게 되면 긴 시간이 걸리는 특정 작업이 끝날�
 ###V8 javascript 엔진
 javascript 컴파일러.  
 직접적인 기계어로 컴파일하여 성능을 향상시킴.  
-인라인 캐싱 등 최적화 기법도 사용하여 추가 성능 향상  
+인라인 캐싱 등 최적화 기법도 사용하여 추가 성능 향상
 
 ##기존 웹서버와 Node.js의 차이
-기존 멀티스레드 웹서버는 Apache가 있다  
+기존 멀티스레드 웹서버는 Apache가 있다
 
 ###기존 웹서버(Apache를 예로)의 특성
 Apache는 request를 처리하기 위해 별도의 스레드를 생성하거나 프로세스 호출  
-request가 많으면 병목 발생. 원인은 io 처리중 지연발생으로 다른 io 처리지연  
-  
+request가 많으면 병목 발생. 원인은 io 처리중 지연발생으로 다른 io 처리지연
+
 동기 방식에서 이를 해결하기 위해서는
 
 1. 멀티스레드
 2. 스케일아웃
 3. 로드밸런싱
 
-위 단계를 거쳐 io에서 발생할 지연을 대비한다.  
-  
+위 단계를 거쳐 io에서 발생할 지연을 대비한다.
+
 Nodejs 즉, 비동기는 위와 다른 방식으로 io 지연발생을 처리함  
 지연발생 할것 같은 io는 callback으로 background로 넘김  
-background란 libuv로 io 처리는 싱글스레드 non-blocking이다  
-  
-비동기 방식에서 해결하는 과정은  
+background란 libuv로 io 처리는 싱글스레드 non-blocking이다
+
+비동기 방식에서 해결하는 과정은
 
 1. URL_A가 request 오면 event 돌린다(libuv로 넘김)
 2. 또 다음 URL_B의 request 받는다
