@@ -24,3 +24,4 @@ const [state, dispatch] = useReducer(reducer, initialState)
 ##redux와 차이
 redux-saga 등 middleware가 없으므로  
 비동기 처리가 어려운 한계점이 있다
+작은 app에는 useReducer로 충분할 듯
