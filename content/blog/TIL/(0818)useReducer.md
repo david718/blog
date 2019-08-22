@@ -8,4 +8,4 @@ redux의 핵심개념인 reducer를 간단하게 구현한 hooks이다
 
 ##redux의 핵심개념
 
-![](images/0818_reduxBasicConcepts.jpg)
+![](images/0818_reduxBasicConcept.jpg)
