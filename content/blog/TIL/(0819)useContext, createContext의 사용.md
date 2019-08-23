@@ -26,7 +26,7 @@ const newContext = createContext({
 
 위처럼 `createContext`는 react 의 api이다  
 새로운 context를 만드는 방법은  
-`createContext`에게 전달할 props들을 포함한 객체를 인자로 주는 것이다
+`createContext`에게 전달할 props 를 포함한 객체를 인자로 주는 것이다
 
 그럼 최하위 component는 어떻게  
 `createContext`에 넣은 객체 안에 있는 state를 사용할 수 있을까?
