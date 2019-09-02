@@ -18,7 +18,7 @@ DNS server의 IP address를 DHCP Option 6 을 통해 함께 받는다
 위 그림에서처럼 local PC DNS server가 여러 DNS server를 거쳐  
 필요한 IP address를 찾는 과정, 즉 아래에 설명한 과정  
 (Root DNS server -> com DNS server -> naver.com DNS server)을  
-**Recursive Query**라 한다
+**Recursive Query**라고 한다
 
 1. PC의 browser에서 URL(https://www.naver.com/index.html)을 입력하면 PC는 미리 설정되어 있는 DNS(local DNS)에게 `www.naver.com(hostname)`에 대한 `IP address`를 물어본다. 만약 있다면 PC에 해당 `IP address`를 주고 끝
 2. 없다면 `www.naver.com(hostname)`에 대한 `IP address`를 찾아내기 위해 Root DNS server와 통신(DNS message 주고받기 위해 local DNS server에 Root DNS server의 IP address가 설정되어 있어야 함)
