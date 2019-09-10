@@ -41,3 +41,13 @@ onChangeName = (e: any) => {
 ```
 
 그러자 error가 해결되었다
+
+##왜? SyntheticEvent 의 pooling 현상
+
+성능상의 이유로 SyntheticEvent는 pooling 현상이 있다  
+즉 event 객체가 재사용되고 모든 속성은 event handler가 호출된 다음 초기화 된다
+따라서 비동기적으로 event 객체에 접근할 수 없다
+
+비동기적으로 event 객체에 접근하고 싶다면  
+event.persist()를 호출하여 event 객체를 pool에서 제거해야 한다  
+그럼 비동기적으로 event 객체에 접근이 가능해진다
