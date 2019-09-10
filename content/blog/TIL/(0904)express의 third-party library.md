@@ -1,14 +1,49 @@
 ---
-title: (0904)body-parser
+title: (0904)express의 third-party library
 date: 2019-09-10 16:09:24
 category: TIL
 ---
+
+##third-party library란?
+
+express는 server를 구성하는 framework으로  
+타인이 만든 library를 가져와서 사용할 수 있다  
+이를 middleware라고도 하는데 third-party library는  
+express팀이 아닌 제3자가 제작한 middleware를 총칭한다
+
+##express에서 middleware를 사용하는 것
+보통 url을 routing해서 각 url마다 해당하는 logic을 처리하게 되는데  
+이때 routing 하기 전에 middleware 로직을 거치게 된다
+
+즉, 각 routing에서 중복해서 발생하는 작업을 제거할 수 있다  
+미리 모아서 중복 작업을 실행한 후에 routing으로 뿌려줄 수 있기 때문이다.
+
+##middleware 작성법
+
+```js
+const express = require('express')
+const app = express()
+
+app.use((req, res, next) => {
+  fs.readdir('./data', function(error, filelist) {
+    req.list = filelist
+    next()
+  })
+})
+```
+
+위와 같이 router 별로 중복되는 code를 추출하여  
+request에 list 변수를 선언하고 할당할 수 있다
+
+그 결과 다른 router에서는 req.list로 해당 변수에 접근할 수 있다
+
+##middleware로, third-party library중 하나인 body-parser를 사용하는 예시
 
 body-parser란 form 형식 혹은 json 형식으로 전송된 data를  
 쉽게 parsing 해주는 도움을 주는 express에서 사용 가능한  
 third-party library이다
 
-##body-parser 사용하기 전 코드
+###body-parser 사용하기 전 코드
 
 ```js{10,11,12,13}
 const express = require('express')
@@ -46,7 +81,7 @@ request에서 보낸 form data를 받는 과정은 다음과 같다.
 
 이러한 3단계 과정을 1단계로 축약시켜주는 것이 body-parser이다
 
-##body-parser 사용하여 data를 request.body에 할당한 코드
+###body-parser 사용하여 data를 request.body에 할당한 코드
 
 ```js
 app.post('/create_process', (req, res) => {
