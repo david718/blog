@@ -15,7 +15,7 @@ bubble sort 와 insertion sort, selection sort 는 각각 장단점이 있다
 ## 각 sorting algoritm의 특징
 
 - bubble sort: 바로 다음 item 과 크기 비교한다. 작은 걸 앞으로 보낸다
-- insertion sort: 정렬된 item들을 늘려가는 방식. 이전 item들 중에 정렬된 자리로 현재 item을 보낸다(이미 정렬되어있으면 비교 끝)
+- insertion sort: 정렬된 item들을 늘려가는 방식. 이전 item들 중에 정렬된 자리로 현재 item을 보낸다(이미 정렬되어 있으면 비교 끝)
 - selection sort: 현재 item이 다음 item들 중에서 가장 작은 item인지 확인한다. 더 작은 item이 있다면 자리를 바꿔 정렬한다
 
 이러한 특징들을 가지고 있기 때문에 각각 효율적으로 적용되는 data set이 다르다
