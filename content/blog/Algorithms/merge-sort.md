@@ -4,9 +4,9 @@ date: 2019-09-17 11:09:20
 category: Algorithms
 ---
 
-merge sort는 2가지 사실을 기반한다
+merge sort는 2가지 사실에 기반한다
 
-- 정렬된 array끼리 merge하여 sorting하는 것은 정렬되지 않은 array들을 sorting하는 것보다 빠르다
+- 정렬된 array끼리 sorting하여 merge하는 것은 정렬되지 않은 array들을 merge하는 것보다 빠르다
 - item이 0 혹은 1개인 array는 sort 되어있다
 
 위 2가지 사실에 기반하여 merge sort가 진행된다  
