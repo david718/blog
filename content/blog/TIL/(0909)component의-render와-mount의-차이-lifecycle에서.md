@@ -1,6 +1,6 @@
 ---
 title: (0909)component의 render와 mount의 차이 lifecycle에서
-date: 2019-09-23 12:09:85
+date: 2019-09-09 12:09:85
 category: TIL
 ---
 
