@@ -1,0 +1,49 @@
+---
+title: (0919)network study
+date: 2019-09-19 16:10:69
+category: TIL
+---
+
+- tcp/ip port / socket / unix socket
+  - port: process identifier 중 하나인데 os에서 관리를 하는거 / 1~65535 / 데이터 주고받을 수 있는 문
+  - socket: ip+port client/server가 연결이 되었을 때 만들어진 통로 (network socket)
+- unix socket: file로 만들어진 socket (pipe랑 다른점은 pipe는 uni-directional, socket은 bi-directional)
+  - network socket보다 빨라요 (tcp overhead가 없어서)
+  - local filesystem에서만 가능
+- dns / cdn / cache
+  - dns: domain name service 주소 -> IP 연결
+  - cdn: content delivery network, image나 font나 그런 등등 resource를 중간에 caching해놓고 distributed 방식으로 제공하는거
+  - cache: 임시로 들고 있는거 / TTL: time to live / eTAG: 수정된 시간
+- traceroute: 특정 ip로 가는데 까지의 경로를 확인
+- proxy / reverse proxy
+  - proxy: A - B - C 일때 A가 C한테 B를 통해서 요청하는거 (A의 신상을 가림)
+  - reverse proxy: A - B - C 일 때 A가 B한테 요청한 거를 B가 C를 통해서 주는거 (C의 신상을 가림)
+- cloudflare / verify-client-cert
+  - cloudflare: dns, cdn, analytics, proxy 등등을 제공하는 서비스
+- verify-client-cert: 클라우드플레어의 기능
+  - 인증서가 검증된 클라이언트 요청만 받는다
+  - 브라우저만 받겠다? x
+  - 크롤러 막겠다? x
+  - 클라이언트를 제한하겠다는 거죠 서버에서?
+  - 클라 - 크라플 - 서버
+  - 서버에서 클라플 요청만 받겟다는 것
+    - 클라 - 서버 불가
+    - 클라 - 클라플 - 서버 가능
+    - cloudflare가 갖고있는 ip가 정해져있어요
+    - 거기서 오는것만 받겠다 도 가능
+- load balancing : load를 밸런싱한다
+  - C-L(nginx)--S    |-S    |-S    |-S
+  - round robin
+  - weighted round robin
+  - random
+  - source IP hash
+  - URL hash
+  - least connection
+  - least traffic
+  - least latency
+- firewall
+  - C - Cloudflare(fw) - (hardware:fw) - (os,ufw:fw)Nginx(ver_cli,accpet:fw) - (listen(ip,):fw)S
+  - cloudflare
+  - hardware
+  - ufw - linux
+- applications / nginx
