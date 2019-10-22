@@ -1,6 +1,6 @@
 ---
 title: (0922)Nextjs에서 _app.js로 Layout 만들기
-date: 2019-10-14 11:10:25
+date: 2019-09-22 11:10:25
 category: TIL
 ---
 
