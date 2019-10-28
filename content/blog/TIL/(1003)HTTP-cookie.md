@@ -37,8 +37,8 @@ http
 ```
 
 위 서버를 보면 3000 port 에서 request를 받고 있다  
-response로 header에 `Set-Cookie`라는 key값으로  
-cookie를 client에게 저장하고 있다
+response로 header에 `Set-Cookie`라는 key를 주고  
+value값으로 cookie를 client에게 저장하고 있다
 
 ### 2. client에서 저장된 cookie 확인하기
 
@@ -98,3 +98,45 @@ cookies에는 객체형태로 cookie들이 저장된다
 - tracking
 
 이러한 목적에 따라 cookie를 활용할 수 있다
+
+### session management(ex - sessionid 라는 cookie)
+
+server는 login을 한 client에게 sessionid를 쿠키로 저장한다  
+이는 sessionid(cookie)를 통해 client의 login 여부를 확인하여  
+다시 login 하지 않아도 login 상태를 유지하기 위함이다
+
+## cookie의 종류
+
+- permanent cookie
+- session cookie
+
+web browser 가 종료된 후에도 저장이 계속되는지  
+여부에 따라 2종류로 나누어진다
+
+## permanent cookie
+
+permanent cookie 를 만드는 방법은 아래와 같다
+
+```js
+http
+  .createServer((req, res) => {
+    let cookies = {}
+    if (req.headers.cookie !== undefined) {
+      cookies = cookie.parse(req.headers.cookie)
+    }
+    console.log(cookies)
+    res.writeHead(200, {
+      'Set-Cookie': [`permanent=cookie; Max-Age=${60}`],
+    })
+    res.end('cookie')
+  })
+  .listen(3000)
+```
+
+위처럼 `Max-Age` 라는 값을 주고 = 으로 초단위 숫자로 할당한다  
+그럼 해당 초만큼 cookie가 permanent 즉, 유지 된다
+
+## session cookie
+
+session cookie는 따로 Max-Age 값을 설정하지 않은 cookie다  
+따라서 web browser가 종료되면 삭제 된다
