@@ -113,7 +113,7 @@ server는 login을 한 client에게 sessionid를 쿠키로 저장한다
 web browser 가 종료된 후에도 저장이 계속되는지  
 여부에 따라 2종류로 나누어진다
 
-## permanent cookie
+### permanent cookie
 
 permanent cookie 를 만드는 방법은 아래와 같다
 
@@ -136,7 +136,51 @@ http
 위처럼 `Max-Age` 라는 값을 주고 = 으로 초단위 숫자로 할당한다  
 그럼 해당 초만큼 cookie가 permanent 즉, 유지 된다
 
-## session cookie
+### session cookie
 
-session cookie는 따로 Max-Age 값을 설정하지 않은 cookie다  
-따라서 web browser가 종료되면 삭제 된다
+`Max-Age` option 을 설정하지 않으면 session cookie이다  
+이 cookie는 browser가 종료되면 삭제된다
+
+## cookie의 option 들
+
+다양한 option 을 활용해서 cookie의 기능을 추가할 수 있다
+
+### Max-Age
+
+위 `permanent=cookie; Max-Age=${60}` 에서와 같이  
+`Max-Age` 값을 `Max-Age=60` 와 같이 string으로 주면  
+해당 cookie는 60초 후에 삭제 된다
+즉, client가 저장한 cookie의 수명을 지정할 수 있다
+
+### Secure
+
+`Secure` option 은 아래와 같이 줄 수 있다  
+`example=cookie; Secure` 처럼 쓰면 된다  
+그 결과 `example=cookie` 이라는 cookie는  
+HTTPS 를 활용한 통신에서만 저장하는 cookie가 된다
+
+### HttpOnly
+
+Http를 활용해서 통신할 때만 cookie에 접근할 수 있도록  
+cookie에 `HttpOnly` option을 추가할 수 있다
+
+browser에서 javascript로 `document.cookie`를 통해서  
+cookie값에 접근할 수 있는데 이때 cookie 탈취의 위험이 있다
+`HttpOnly`를 추가하면 javascript로 cookie에 접근이 불가능해진다  
+그 결과 cookie 탈취의 위험을 방지할 수 있다
+
+### Path
+
+특정 directory 에서만 cookie를 활성화하고 싶을 때  
+해당 directory 를 정하는 option이 path이다
+
+`example=cookie Path=/cookie` 로 path 값을 할당할 수 있다  
+그 결과 `localhost:3000/cookie` 에 접속하면  
+`example=cookie`라는 cookie가 있는 것을 확인할 수 있다  
+ 만약 `localhost:3000/` 로 이동하면 해당 cookie는 없다
+
+### Domain
+
+마찬가지로 특정 domain 에서만 활성화 되는 cookie를 만들 수 있다  
+`example=cookie Domain=o2.org` 로 Domain 값을 할당할 수 있다  
+그 결과 `o2.org`에 접속해야만 cookie를 확인할 수 있다
