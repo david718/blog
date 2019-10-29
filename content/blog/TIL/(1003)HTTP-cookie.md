@@ -6,7 +6,9 @@ category: TIL
 
 http cookie(웹 쿠키, 브라우저 쿠키)는  
 server가 client에게 만들어주는 작은 data 조각이다  
-동일한 server에 재요청시 data 조각을 함께 전송한다
+client가 server에 재요청시 data 조각을 함께 전송한다  
+그 결과, server는 client를 authenticate 하게 된다  
+즉, client 개개인에 맞춰 다른 response를 보낼 수 있게 된다
 
 이러한 cookie의 활용과정과 목적 3가지에 대해 살펴보자
 먼저 cookie의 활용 과정이다
