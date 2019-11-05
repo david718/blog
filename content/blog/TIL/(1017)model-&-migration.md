@@ -5,7 +5,8 @@ category: TIL
 ---
 
 - data model : data를 요소로 가지는 table 들의 관계를 표현하는 구조나 형식
-- data migration : data를 선택, 추출, 준비, 이동하는 process
+- data CRUD : data 자체를 create, read, update, delete 하는 것
+- database migration : model 들의 관계인 schema 에 대한 모든 수정
 
 ## prisma
 
@@ -77,10 +78,3 @@ graphQL CRUD 를 제공한다
 prisma client가 보낸 request를 database query로 바꿔준다
 
 `prisma.yml` 과 `schema.prisma` 에 의해 config 된다
-
-## Prisma2
-
-구성 요소는 아래 2가지이다
-
-- `Photon` : tpye-safe 와 auto-generated database client
-- `Lift` :
