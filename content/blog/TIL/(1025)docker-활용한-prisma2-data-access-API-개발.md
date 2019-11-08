@@ -1,5 +1,5 @@
 ---
-title: (1025)docker 활용한 prisma2 data access API 개발
+title: (1025)docker 활용한 prisma2 data access API 개발환경 setting
 date: 2019-10-25 12:11:61
 category: TIL
 ---
