@@ -7,7 +7,7 @@ category: TIL
 paper.js 는 vector graphics scripting framework  
 HTML5 canvas elements 를 기반으로 동작한다
 
-### vector?
+### vector
 
 한 position 에서 다른 position 까지 거리를  
 x, y 좌표로 표현하거나 각도, 길이로 표현하는 방법
@@ -80,3 +80,7 @@ circle.onMouseDrag = e => {
   circle.position += e.delta
 }
 ```
+
+## examples
+
+http://sketch.paperjs.org/#V/0.12.3/S/RY9BD4IwDIX/yrILEAnBgxeMXvBqYuJRPIxZYdlsyTZiDOG/O8Bgkx7a7730deAoXsALftXgZctTLukxzZLQeSaVlQbYgSG82UX4NivnTTzPpNDH2zxPQycp2+XJvsLFkjlvSUNJhmywR7URUkcrfSpjVub0pzY9/CnhmXoHJyuawMP5IxsqZKGmVBQUhpoYsgcYL5IfWawdOeUVIdsE4yKocAxv1RaE7qbEjhe3+/gF
