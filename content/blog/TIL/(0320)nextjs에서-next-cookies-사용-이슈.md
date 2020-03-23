@@ -13,6 +13,7 @@ category: TIL
 
 1. cookie를 활용한 auth 구현 원리
 2. cookie 의 생성 방법(response 에 넣어주기)
+   - cookie 삭제 방법(exprires = -1)
 3. next page 렌더링 할 때 cookie 확인하는 위치
 4. getInitialProps 실행 원리
    - server side 에서 cookie 확인
@@ -89,6 +90,16 @@ next 개발 server 에 저장하는 과정은 아래와 같다
 1. axios post에 loginData를 담아 auth server 3001번 포트로 request 했다
 2. response 로 user data를 받고, response headers에 담긴 token 값을 token 에 저장했다
 3. res.setHeader token 을 통해 cookie 안에 token 값을 저장했다
+
+### cookie 삭제 방법
+
+cookie 를 삭제하는 방법은  
+cookie 옵션 중 expires 의 값을 -1 로 할당하면 된다  
+코드는 아래와 같다
+
+```js
+res.setHeader('Set-Cookie', `token=; path=/; expires=-1`)
+```
 
 ## 3. next page 렌더링 할 때 cookie 확인하는 위치
 

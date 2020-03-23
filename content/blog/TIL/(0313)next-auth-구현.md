@@ -1,12 +1,9 @@
 ---
-title: (0313)next auth 구현
+title: (0313)next ssr vs csr
 date: 2020-03-13 13:03:18
 category: TIL
 ---
 
-- same origin policy
-- protocol, host, port
-- CORS
-  - server side 해결
-  - client side 해결
-- 
+- 브라우저 동작 원리(렌더링이란?)
+- ssr csr 차이
+- next 동작 원리
