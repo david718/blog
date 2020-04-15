@@ -12,8 +12,6 @@ category: Developments
 
 ## browser elements
 
-![](images/browser.png)
-
 - 사용자 인터페이스 : 주소표시줄, 이전/다음 버튼, 홈버튼, 새로고침/정지 버튼 등 요청한 페이지를 보여주는 창 외에 사용자가 컨트롤 할 수 있는 부분
 - 브라우저 엔진 : 사용자 인터페이스와 렌더링 엔진 사이에 동작을 제어한다
 - 렌더링 엔진 : 요청한 URI를 브라우저 엔진에게 받아서 server에게 요청한다(통신). server로 부터 URI에 해당하는 데이터(HTML, CSS, JavaScript)를 받아서 파싱한 후 렌더링한다(chrome webkit)
@@ -21,6 +19,8 @@ category: Developments
 - 자바스크립트 해석기 : JavaScript 를 파싱한다(chrome V8)
 - 자료 저장소 : 쿠키 등의 자료를 컴퓨터 하드디스크에 저장한다. (HTML5 부터 Web Database에 저장가능)
 - UI 벡엔드 : render tree를 browser 에 그리는 역할을 담당한다
+
+![](images/browser.png)
 
 ## browser rendering process(each element's feature)
 
