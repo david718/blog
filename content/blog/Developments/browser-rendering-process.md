@@ -20,6 +20,7 @@ category: Developments
 - 통신 : 렌더링 엔진으로부터 HTTP 요청 등을 받아서 네트워크 처리 후 응답을 전달한다.(OS 단에서 실행)
 - 자바스크립트 해석기 : JavaScript 를 파싱한다(chrome V8)
 - 자료 저장소 : 쿠키 등의 자료를 컴퓨터 하드디스크에 저장한다. (HTML5 부터 Web Database에 저장가능)
+- UI 벡엔드 : render tree를 browser 에 그리는 역할을 담당한다
 
 ## browser rendering process(each element's feature)
 
