@@ -30,10 +30,11 @@ category: Developments
 2. 브라우저 엔진은 자료 저장소에서 URI에 해당하는 자료를 찾고, 해당 자료를 쿠키로 저장했다면 그 자료를 렌더링 엔진에 전달한다
 3. 렌더링 엔진은 브라우저 엔진에서 가져온 자료(HTML, CSS, image 등)를 분석한다. 동시에 URI 데이터를 통신, 자바스크립트 해석기, UI 백엔드로 전파한다
 4. 또한 렌더링 엔진은 통신 레이어에 URI에 대한 추가 데이터(있다면)를 요청하고 응답할 때까지 기다린다
-5. 응답받은 데이터에서 HTML, CSS가 있다면 렌더링 엔진이 파싱한다
-6. 응답받은 데이터에서 JavaScript는 JavaScript 해석기에서 파싱한다
-7. JavaScript 해석기는 분석 결과를 렌더링 엔진에 전달하여 3번과 5번에서 파싱한 HTML, CSS의 결과인 DOM을 조작한다.
-8. UI 벡엔드는 생성 후, 조작까지 완료된 DOM node를 브라우저 렌더링 화면에 띄워준다
+5. 응답받은 데이터에서 HTML, CSS는 렌더링 엔진이 파싱한다
+6. 응답받은 데이터에서 JavaScript는 JavaScript 해석기가 파싱한다
+7. JavaScript 해석기는 파싱한 결과를 렌더링 엔진에 전달하여 3번과 5번에서 파싱한 HTML의 결과인 DOM tree을 조작한다
+8. 조작이 완료된 DOM node(DOM tree 구성요소)는 render object(render tree 구성요소)로 변한다
+9. UI 벡엔드는 render object를 브라우저 렌더링 화면에 띄워준다
 
 ## rendering engine working process
 
@@ -69,17 +70,35 @@ render tree에 node를 그린다(2,3,4번)
     <div>
       <img src="example.png" />
     </div>
+    <script></script>
   </body>
 </html>
 ```
 
 ![](images/domtree.png)
 
+브라우저는 tag의 parsing 과 실행을 동시에 진행한다  
+그러므로 아래 과정으로 HTML tag 를 parsing 한다
+
+1. `<script>` tag 를 parsing 한다
+2. `<script>` tag 를 실행한다
+3. 실행이 완료된 후 다음 tag 를 파싱한다
+
+> `<script>` tag의 실행이 완료된 후, 다음 tag 를 parsing 한다
+
+그러므로
+
+HTML5 에서 추가된 기능이 있다
+
+> HTML5에서는 `<script>` tag를 비동기로 처리하는 속성을 추가했다
+
 ### 2. CSS(style sheets)를 parsing 하여 스타일 규칙을 얻는다
 
 css parsing process https://d2.naver.com/helloworld/59361
 
-### 3. DOM tree를 생성하는 동시에, 이미 생성된 DOM tree 와 스타일 규칙(DOM tree 처럼 tag와 그에 해당하는 css 규칙을 가진 object형태)을 Attachment 한다.
+css parsing 하여 CSSOM 생성한다(스타일 규칙)
+
+### 3. DOM tree를 생성하는 동시에, 이미 생성된 DOM tree 와 스타일 규칙(CSSOM)을 Attachment 한다.
 
 - DOM tree를 구성하는 하나의 DOM node 는 attach 라는 method를 가진다. - 새로운 DOM node 가 추가되면 attach가 호출되어 render object를 생성한다
 - render object는 render tree의 구성요소로써, 자신과 자식 요소를 어떻게 배치하고 그려야할지 안다
@@ -95,3 +114,7 @@ css parsing process https://d2.naver.com/helloworld/59361
 ### 5. 배치가 끝난 render tree 를 그린다
 
 render tree 탐색 후 해당하는 render object 의 paint method 를 호출한다)
+
+## references
+
+- https://d2.naver.com/helloworld/59361
