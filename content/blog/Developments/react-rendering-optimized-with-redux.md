@@ -1,7 +1,7 @@
 ---
-title: (0417)react rendering optimized with redux
-date: 2020-04-17 16:04:24
-category: TIL
+title: react rendering optimized with redux
+date: 2020-04-29 18:04:88
+category: Developments
 ---
 
 1. what is rendering optimization
