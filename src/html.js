@@ -15,8 +15,8 @@ export default class HTML extends React.Component {
           <script
             data-ad-client="ca-pub-8648780633663392"
             async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-          />
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+          
           {this.props.headComponents}
         </head>
         <body {...this.props.bodyAttributes}>
