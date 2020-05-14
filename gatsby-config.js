@@ -4,6 +4,12 @@ module.exports = {
   siteMetadata: metaConfig,
   plugins: [
     {
+      resolve: `gatsby-plugin-google-adsense`,
+      options: {
+        publisherId: `ca-pub-8648780633663392`,
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/blog`,
