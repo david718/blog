@@ -7,6 +7,7 @@ module.exports = {
       resolve: `gatsby-plugin-google-adsense`,
       options: {
         publisherId: `ca-pub-8648780633663392`,
+        head: true,
       },
     },
     {
